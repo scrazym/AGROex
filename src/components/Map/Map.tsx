@@ -39,7 +39,7 @@ const Map: FC<MapProps> = ({country, city}) => {
       try {
         const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
           `${country}, ${city}`,
-        )}&key=AIzaSyDkqGb0NttyhSFDgrheqC5krOQGlh1ZVUg&type=locality`;
+        )}&key=${process.env.GOOGLE_API_KEY}&type=locality`;
         const response = await axios.get(geocodeUrl);
         const data = response.data;
 
